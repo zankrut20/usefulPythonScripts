@@ -13,11 +13,15 @@ for file in files_lst:
     except IndexError:
         continue
 
-# print(extension_set)
+# list of removing extensions
+remove_extn = set(['py','axd','asx','asmx','ashx','aspx','dll','xml','asp','css','cfm','yaws','swf','html','htm','xhtml','jhtml','jsp','jspx','wss','do','action','js','r','rmd'])
+
+# finally removing the extensions from the extn_set
+f_extn_set = e = extn_set.difference(remove_extn)
 
 # create directory function for extensions which is stored in extension_set
 def create_dir():
-    for dir in extn_set:
+    for dir in f_extn_set:
         try:
             os.makedirs(dir+"_files")
         except FileExistsError:
