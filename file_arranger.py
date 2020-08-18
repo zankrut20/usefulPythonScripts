@@ -13,11 +13,24 @@ for file in files_lst:
     except IndexError:
         continue
 
+# some groups of the set
+    # video file extensions
+video = set(['webm', 'mkv', 'flv', 'vob', 'ogv', 'ogg', 'drc', 'gif', 'givf', 'mng', 'avi', 'mts', 'm2ts', 'ts', 'mov', 'qt', 'wmv', 'yuv', 'rm', 'rmvb', 'viv', 'asf', 'amv', 'mp4', 'm4p', 'm4v', 'mpg', 'mp2', 'mpeg', 'mpe', 'mpv', 'm2v', 'svi', '3gp', '3g2', 'mxf', 'roq', 'nsv', 'flv', 'f4v', 'f4p', 'f4a', 'f4b'])
+
+    # music file extensions
+music = set(['3gp', 'aa', 'aac', 'aax', 'act', 'aiff', 'alac', 'amr', 'ape', 'au', 'awb', 'dct', 'dss', 'dvf', 'flac', 'gsm', 'iklax', 'ivs', 'mmf', 'mp3', 'mpc', 'sv', 'ogg', 'oga', 'mogg', 'opus', 'ra', 'rm', 'raw', 'rf64', 'sln', 'tta', 'voc', 'vox', 'wav', 'wma', 'wv', 'webm', '8svx', 'cda', 'm4a', 'mpb', 'm4p'])
+
+    # compressed file extensions
+cpressed = set(['arc', 'arj', 'as', 'b64', 'btoa', 'bz', 'cab', 'cpt', 'gz', 'hqx', 'iso', 'lha', 'lzh', 'mim', 'mme', 'pak', 'pf', 'rar', 'rpm', 'sea', 'sit', 'sitx', 'tbz', 'tbz2', 'tgz', 'uu', 'uue', 'z', 'zip', 'zipx', 'zoo'])
+
+    # audio-video file extensions
+av = video.intersection(music)
+
 # list of removing extensions
 remove_extn = set(['py','axd','asx','asmx','ashx','aspx','dll','xml','asp','css','cfm','yaws','swf','html','htm','xhtml','jhtml','jsp','jspx','wss','do','action','js','r','rmd'])
 
 # finally removing the extensions from the extn_set
-f_extn_set = e = extn_set.difference(remove_extn)
+f_extn_set = extn_set.difference(remove_extn)
 
 # create directory function for extensions which is stored in extension_set
 def create_dir():
