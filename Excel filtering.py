@@ -10,7 +10,7 @@ file_name = os.path.splitext(file)[0]
 path = os.path.dirname(file)
 new_file = os.path.join(path, file_name + "_2" + extn)
 df = pd.read_excel(file)
-colpick = input("Select Colums: ")
+colpick = input("Select Columns: ")
 cols = list(set(df[colpick].values))
 
 # function for creating files
@@ -19,7 +19,6 @@ def sendtofile(cols):
         df[df[colpick] == i].to_excel("{}/{}.xlsx".format(path, i), sheet_name = i, index = False)
         print("\nCompleted")
         print("Thanks for using this program.")
-        return
 
 # function for creating different sheets
 def sendtosheet(cols):
